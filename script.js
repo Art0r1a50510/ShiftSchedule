@@ -1,5 +1,4 @@
-
-    <script>
+<script>
         // Переключение вкладок
         function openTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(tab => {
@@ -313,4 +312,4 @@
             generateDN48Schedule();
             generate3x1Schedule();
         });
-    </script>
+</script>
