@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>График смен</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>График смен</h2>
+
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab('tab-2x2')">График 2/2</button>
+            <button class="tab-btn" onclick="openTab('tab-dn48')">День-Ночь-48</button>
+            <button class="tab-btn" onclick="openTab('tab-3x1')">График 3/1</button>
+        </div>
+
+        <!-- Вкладка 2/2 -->
+        <div id="tab-2x2" class="tab-content active">
+            <div class="input-group">
+                <label for="start-date-2x2">Дата первой смены:</label>
+                <input type="date" id="start-date-2x2" />
+            </div>
+            <div class="input-group">
+                <label for="team-size-2x2">Количество работников:</label>
+                <select id="team-size-2x2">
+                    <option value="4">4 работника</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="days-count-2x2">Дней для отображения:</label>
+                <input type="number" id="days-count-2x2" min="7" value="14" />
+            </div>
+            <div class="input-group">
+                <label for="view-mode-2x2">Режим отображения:</label>
+                <select id="view-mode-2x2">
+                    <option value="table">Таблица</option>
+                    <option value="calendar">Календарь</option>
+                </select>
+            </div>
+            <button onclick="generate2x2Schedule()">Создать график</button>
+
+            <div class="legend">
+                <div class="legend-item"><div class="legend-color work-2x2"></div><span>Рабочий день</span></div>
+                <div class="legend-item"><div class="legend-color off-2x2"></div><span>Выходной</span></div>
+            </div>
+            <div id="schedule-result-2x2" class="schedule-container"></div>
+        </div>
+
+        <!-- Вкладка День-Ночь-48 -->
+        <div id="tab-dn48" class="tab-content">
+            <div class="input-group">
+                <label for="start-date-dn48">Дата первой смены:</label>
+                <input type="date" id="start-date-dn48" />
+            </div>
+            <div class="input-group">
+                <label for="team-size-dn48">Количество работников:</label>
+                <input type="number" id="team-size-dn48" min="2" value="4" />
+            </div>
+            <div class="input-group">
+                <label for="days-count-dn48">Дней для отображения:</label>
+                <input type="number" id="days-count-dn48" min="7" value="14" />
+            </div>
+            <div class="input-group">
+                <label for="view-mode-dn48">Режим отображения:</label>
+                <select id="view-mode-dn48">
+                    <option value="table">Таблица</option>
+                    <option value="calendar">Календарь</option>
+                </select>
+            </div>
+            <button onclick="generateDN48Schedule()">Создать график</button>
+
+            <div class="legend">
+                <div class="legend-item"><div class="legend-color day-dn48"></div><span>Дневная смена</span></div>
+                <div class="legend-item"><div class="legend-color night-dn48"></div><span>Ночная смена</span></div>
+                <div class="legend-item"><div class="legend-color rest-dn48"></div><span>Отдых</span></div>
+            </div>
+            <div id="schedule-result-dn48" class="schedule-container"></div>
+        </div>
+
+        <!-- Вкладка 3/1 -->
+        <div id="tab-3x1" class="tab-content">
+            <div class="input-group">
+                <label for="start-date-3x1">Дата первой смены:</label>
+                <input type="date" id="start-date-3x1" />
+            </div>
+            <div class="input-group">
+                <label for="team-size-3x1">Количество работников:</label>
+                <select id="team-size-3x1">
+                    <option value="4">4 работника</option>
+                    <option value="3">3 работника</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="days-count-3x1">Дней для отображения:</label>
+                <input type="number" id="days-count-3x1" min="7" value="14" />
+            </div>
+            <div class="input-group">
+                <label for="view-mode-3x1">Режим отображения:</label>
+                <select id="view-mode-3x1">
+                    <option value="table">Таблица</option>
+                    <option value="calendar">Календарь</option>
+                </select>
+            </div>
+            <button onclick="generate3x1Schedule()">Создать график</button>
+
+            <div class="legend">
+                <div class="legend-item"><div class="legend-color work-3x1"></div><span>Рабочий день</span></div>
+                <div class="legend-item"><div class="legend-color off-3x1"></div><span>Выходной</span></div>
+            </div>
+            <div id="schedule-result-3x1" class="schedule-container"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
